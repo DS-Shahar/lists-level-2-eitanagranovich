@@ -34,37 +34,32 @@ public class Main {
     }
 	
 
-    public static Node<Integer> ex1(Node<Integer> list1, Node<Integer> list2) {
+    public static Node<Integer> ex1(Node<Integer> n1, Node<Integer> n2) {
         Node<Integer> h = new Node<Integer>(-1);
         Node<Integer> p = h;
-        Node<Integer> x = list1;
-        Node<Integer> y = list2;
+        int min;
     
-        while (x != null && y != null) {
-            if (x.getValue() <= y.getValue()) {
-                p.setNext(new Node<Integer>(x.getValue()));
-                p = p.getNext();
-                x = x.getNext();
-            } else {
-                p.setNext(new Node<Integer>(y.getValue()));
-                p = p.getNext();
-                y = y.getNext();
-            }
+        while (n1 != null && n1 != null) {
+            if (n1.getValue() <= n2.getValue()) {
+                min = n1.getValue());
+				n1 = n1.getNext();
+            } else {				
+                min = n2.getValue());
+				n2 = n2.getNext();
+			}
+			p.setNext(new Node<Integer>(min));
+			p = p.getNext();
         }
-    
-        while (x != null) {
-            p.setNext(new Node<Integer>(x.getValue()));
+        while (n1 != null) {
+            p.setNext(new Node<Integer>(n1.getValue()));
             p = p.getNext();
-            x = x.getNext();
+            n1 = n1.getNext();
         }
-    
-        while (y != null) {
-            p.setNext(new Node<Integer>(y.getValue()));
+        while (n2 != null) {
+            p.setNext(new Node<Integer>(n2.getValue()));
             p = p.getNext();
-            y = y.getNext();
-        }
-    
+            n2 = n2.getNext();
+        }    
         return h.getNext();
     }
-
 }
