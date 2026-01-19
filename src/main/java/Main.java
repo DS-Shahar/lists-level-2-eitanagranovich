@@ -184,6 +184,24 @@ public class Main {
     
         return hNew.getNext();
     }
+	    public static int max(Queue<Integer> q){
+        
+        int max = 0;
+        boolean find_zero = false;
+        int num = q.remove();
+        while(!q.isEmpty() || num == 0){
+            if (num > max){
+                max = num;
+            }
+            num = q.remove();
+            if (num == 0){
+                find_zero = true;
+            } 
+        }
+        if (find_zero) 
+            return max;
+        return 0;    
+    }
     
     
 }	
